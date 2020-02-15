@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>YS-RMC  AI-PRICING</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body bgcolor="#12C7C8">
+
+
+	<h1 style="text-align: center;"><span style="color: #900C3F;">YS-RMC 人工智慧模型</span></h1>
+	<h2 style="text-align: center;"><span style="color: #666699;">報價速查系統</span></h2>
+
+	<div class="main-form" style="text-align:center;">
+	    <form id='input' action="{{ url_for('predict') }}" method="POST">
+		<input style="width:300px;font-size:20px;background-color:lightgreen;" placeholder="在此輸入台七甲公里(數字)" type="number" name="value1"/><br>
+		<input style="width:300px;font-size:20px;background-color:lightgreen;" placeholder="在此輸入單趟載運米數(數字)" type="number" name="value2"/><br>
+		<button type="submit" style="width:120px;height:40px;font-size:20px;">預測</button>
+	    </form>
+	</div>
+
+	    <br>
+	<div id = 'output'>
+	    <h2 style="text-align: center;">{{ note }}<br></h2>
+	    <h1 style="text-align: center;"><span style="color: #3366ff;">{{ prediction }}</span><br></h1>
+	    <h2 style="text-align: center;">{{ yuan }}<br></h2>
+	</div>
+
+</body>
+</html>
+
