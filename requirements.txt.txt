@@ -1,9 +1,0 @@
-bs4
-flask
-datetime
-pandas
-scipy
-msgpack
-pandas_datareader
-numpy
-pickle
