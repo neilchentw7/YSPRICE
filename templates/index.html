@@ -5,27 +5,358 @@
 	<title>YS-RMC  AI-PRICING</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body bgcolor="#12C7C8">
+<body bgcolor="#31b5f7">
 
 
-	<h1 style="text-align: center;"><span style="color: #900C3F;">YS-RMC 人工智慧模型</span></h1>
-	<h2 style="text-align: center;"><span style="color: #666699;">報價速查系統</span></h2>
+	<h1 style="text-align: center;"><span style="color: #900C3F;">YS-RMC 含運費報價表</span></h1>
+	<h2 style="text-align: center;"><span style="color: #666699;"></span></h2>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#C44D58;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:0px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#C44D58;color:#002b36;background-color:#F9CDAD;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:0px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#C44D58;color:#fdf6e3;background-color:#FE4365;}
+.tg .tg-l0f3{background-color:#67fd9a;text-align:center;vertical-align:top}
+.tg .tg-d78e{background-color:#9aff99;text-align:center;vertical-align:top}
+.tg .tg-8gin{background-color:#ffcc67;color:#000000;text-align:center;vertical-align:top}
+.tg .tg-ifcm{background-color:#ffce93;text-align:center;vertical-align:top}
+.tg .tg-i81m{background-color:#ffffff;text-align:center;vertical-align:top}
+</style>
+<div align="center">
+<table class="tg">
 
-	<div class="main-form" style="text-align:center;">
-	    <form id='input' action="{{ url_for('predict') }}" method="POST">
-		<input style="width:300px;font-size:20px;background-color:lightgreen;" placeholder="在此輸入台七甲公里(數字)" type="number" name="value1"/><br>
-		<input style="width:300px;font-size:20px;background-color:lightgreen;" placeholder="在此輸入單趟載運米數(數字)" type="number" name="value2"/><br>
-		<button type="submit" style="width:120px;height:40px;font-size:20px;">預測</button>
-	    </form>
-	</div>
+  <tr>
+    <th class="tg-8gin" colspan="8">台七甲<br></th>
+  </tr>
+  <tr>
+    <td class="tg-ifcm">里程碑</td>
+    <td class="tg-ifcm">鄰近地名</td>
+    <td class="tg-ifcm">里程碑</td>
+    <td class="tg-ifcm">鄰近地名</td>
+    <td class="tg-ifcm">里程碑</td>
+    <td class="tg-ifcm">鄰近地名</td>
+    <td class="tg-ifcm">里程碑</td>
+    <td class="tg-ifcm">鄰近地名</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">0K</td>
+    <td class="tg-i81m">英仕部落</td>
+    <td class="tg-d78e">11.5K</td>
+    <td class="tg-i81m">德荃橋</td>
+    <td class="tg-l0f3">21K</td>
+    <td class="tg-i81m">繼光橋</td>
+    <td class="tg-d78e">53.5K</td>
+    <td class="tg-i81m">武陵</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">3K</td>
+    <td class="tg-i81m">棲蘭山莊</td>
+    <td class="tg-d78e">12K</td>
+    <td class="tg-i81m">留茂安</td>
+    <td class="tg-l0f3">22.5K</td>
+    <td class="tg-i81m">四季平台菜園</td>
+    <td class="tg-d78e">55.5K</td>
+    <td class="tg-i81m">志良</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">3.5K</td>
+    <td class="tg-i81m">家源橋</td>
+    <td class="tg-d78e">12.5K</td>
+    <td class="tg-i81m">茂安橋</td>
+    <td class="tg-l0f3">24.5K</td>
+    <td class="tg-i81m">則前橋</td>
+    <td class="tg-d78e">57.5K</td>
+    <td class="tg-i81m">苗圃(青葉農場)</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">4.5K</td>
+    <td class="tg-i81m">田古爾溪</td>
+    <td class="tg-d78e">14K</td>
+    <td class="tg-i81m">有澗橋(頂茂安)</td>
+    <td class="tg-l0f3">27.5K</td>
+    <td class="tg-i81m">美優橋東澳頂</td>
+    <td class="tg-d78e">61.5K</td>
+    <td class="tg-i81m">環山</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">5K</td>
+    <td class="tg-i81m">獨立山</td>
+    <td class="tg-d78e">16K</td>
+    <td class="tg-i81m">敦厚橋(加納富)</td>
+    <td class="tg-l0f3">29.5K</td>
+    <td class="tg-i81m">南山街</td>
+    <td class="tg-d78e">65K</td>
+    <td class="tg-i81m">清泉橋</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">5.5K</td>
+    <td class="tg-i81m">大同國中</td>
+    <td class="tg-d78e">17K</td>
+    <td class="tg-i81m">碧水橋</td>
+    <td class="tg-l0f3">32K</td>
+    <td class="tg-i81m">可法橋(紅橋)</td>
+    <td class="tg-d78e">68.5K</td>
+    <td class="tg-i81m">松茂</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">7.5K</td>
+    <td class="tg-i81m">嘉蘭菜園</td>
+    <td class="tg-d78e">18K</td>
+    <td class="tg-i81m">四季上下部落</td>
+    <td class="tg-l0f3">32.5K</td>
+    <td class="tg-i81m">萬田公廟</td>
+    <td class="tg-d78e">74K</td>
+    <td class="tg-i81m">和平梨山</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">8K</td>
+    <td class="tg-i81m">嘉興橋</td>
+    <td class="tg-d78e">18K</td>
+    <td class="tg-i81m">四季國小</td>
+    <td class="tg-l0f3">45.5K</td>
+    <td class="tg-i81m">思源</td>
+    <td class="tg-d78e">74K+5</td>
+    <td class="tg-i81m">福壽山</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">8.5K</td>
+    <td class="tg-i81m">嘉惠橋</td>
+    <td class="tg-d78e">19K</td>
+    <td class="tg-i81m">四季一橋</td>
+    <td class="tg-l0f3">50K</td>
+    <td class="tg-i81m">勝光</td>
+    <td class="tg-d78e">74K+8</td>
+    <td class="tg-i81m">福壽山天池</td>
+  </tr>
+  <tr>
+    <td class="tg-d78e">10K</td>
+    <td class="tg-i81m">事故白車彎</td>
+    <td class="tg-d78e">19.5K</td>
+    <td class="tg-i81m">香腸攤</td>
+    <td class="tg-l0f3">51K</td>
+    <td class="tg-i81m">善莊</td>
+    <td class="tg-d78e">74K+5</td>
+    <td class="tg-i81m">新佳陽(東勢方向)</td>
+  </tr>
 
-	    <br>
-	<div id = 'output'>
-	    <h2 style="text-align: center;">{{ note }}<br></h2>
-	    <h1 style="text-align: center;"><span style="color: #3366ff;">{{ prediction }}</span><br></h1>
-	    <h2 style="text-align: center;">{{ yuan }}<br></h2>
-	</div>
+</table>
+</div>
+
 
 </body>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-yzlp{font-size:22px;font-family:Arial, Helvetica, sans-serif !important;;background-color:#fffc9e;text-align:center;vertical-align:top}
+.tg .tg-4eou{font-size:16px;font-family:"Arial Black", Gadget, sans-serif !important;;background-color:#fffc9e;text-align:center;vertical-align:top}
+.tg .tg-9bf2{font-size:20px;font-family:"Arial Black", Gadget, sans-serif !important;;background-color:#68cbd0;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-t60q{font-size:20px;font-family:"Comic Sans MS", cursive, sans-serif !important;;background-color:#ffc702;border-color:#333333;text-align:center;vertical-align:top}
+.tg .tg-c29s{font-size:18px;font-family:"Arial Black", Gadget, sans-serif !important;;background-color:#9aff99;border-color:#000000;text-align:center;vertical-align:top}
+</style>
+<div align="center">
+<table class="tg">
+  <tr>
+    <th class="tg-t60q" colspan="20">含運費單價表</th>
+  </tr>
+  <tr>
+    <td class="tg-4eou">Qty\KM</td>
+    <td class="tg-yzlp">0K</td>
+    <td class="tg-yzlp">5K</td>
+    <td class="tg-yzlp">10K</td>
+    <td class="tg-yzlp">15K</td>
+    <td class="tg-yzlp">20K</td>
+    <td class="tg-yzlp">25K</td>
+    <td class="tg-yzlp">30K</td>
+    <td class="tg-yzlp">35K</td>
+    <td class="tg-yzlp">40K</td>
+    <td class="tg-yzlp">45K</td>
+    <td class="tg-yzlp">50K</td>
+    <td class="tg-yzlp">55K</td>
+    <td class="tg-yzlp">60K</td>
+    <td class="tg-yzlp">65K</td>
+    <td class="tg-yzlp">70K</td>
+    <td class="tg-yzlp">75K</td>
+    <td class="tg-yzlp">80K</td>
+    <td class="tg-yzlp">85K</td>
+    <td class="tg-yzlp">90K</td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">8米</td>
+    <td class="tg-9bf2">1900</td>
+    <td class="tg-9bf2">2000</td>
+    <td class="tg-9bf2">2100</td>
+    <td class="tg-9bf2">2200</td>
+    <td class="tg-9bf2">2300</td>
+    <td class="tg-9bf2">2400</td>
+    <td class="tg-9bf2">2500</td>
+    <td class="tg-9bf2">2700</td>
+    <td class="tg-9bf2">2850</td>
+    <td class="tg-9bf2">2950</td>
+    <td class="tg-9bf2">3150</td>
+    <td class="tg-9bf2">3250</td>
+    <td class="tg-9bf2">3300</td>
+    <td class="tg-9bf2">3350</td>
+    <td class="tg-9bf2">3400</td>
+    <td class="tg-9bf2">3450</td>
+    <td class="tg-9bf2">3500</td>
+    <td class="tg-9bf2">3600</td>
+    <td class="tg-9bf2">3700</td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">7米</td>
+    <td class="tg-9bf2">2000</td>
+    <td class="tg-9bf2">2100</td>
+    <td class="tg-9bf2">2200</td>
+    <td class="tg-9bf2">2300</td>
+    <td class="tg-9bf2">2450</td>
+    <td class="tg-9bf2">2550</td>
+    <td class="tg-9bf2">2650</td>
+    <td class="tg-9bf2">2900</td>
+    <td class="tg-9bf2">3050</td>
+    <td class="tg-9bf2">3200</td>
+    <td class="tg-9bf2">3400</td>
+    <td class="tg-9bf2">3500</td>
+    <td class="tg-9bf2">3600</td>
+    <td class="tg-9bf2">3650</td>
+    <td class="tg-9bf2">3700</td>
+    <td class="tg-9bf2">3750</td>
+    <td class="tg-9bf2">3800</td>
+    <td class="tg-9bf2">3900</td>
+    <td class="tg-9bf2">4050</td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">6米</td>
+    <td class="tg-9bf2">2050</td>
+    <td class="tg-9bf2">2200</td>
+    <td class="tg-9bf2">2300</td>
+    <td class="tg-9bf2">2450</td>
+    <td class="tg-9bf2">2600</td>
+    <td class="tg-9bf2">2700</td>
+    <td class="tg-9bf2">2850</td>
+    <td class="tg-9bf2">3100</td>
+    <td class="tg-9bf2">3300</td>
+    <td class="tg-9bf2">3450</td>
+    <td class="tg-9bf2">3700</td>
+    <td class="tg-9bf2">3850</td>
+    <td class="tg-9bf2">3900</td>
+    <td class="tg-9bf2">4000</td>
+    <td class="tg-9bf2">4050</td>
+    <td class="tg-9bf2">4100</td>
+    <td class="tg-9bf2">4200</td>
+    <td class="tg-9bf2">4300</td>
+    <td class="tg-9bf2">4450</td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">5米</td>
+    <td class="tg-9bf2">2150</td>
+    <td class="tg-9bf2">2300</td>
+    <td class="tg-9bf2">2500</td>
+    <td class="tg-9bf2">2650</td>
+    <td class="tg-9bf2">2800</td>
+    <td class="tg-9bf2">2950</td>
+    <td class="tg-9bf2">3100</td>
+    <td class="tg-9bf2">3450</td>
+    <td class="tg-9bf2">3700</td>
+    <td class="tg-9bf2">3850</td>
+    <td class="tg-9bf2">4150</td>
+    <td class="tg-9bf2">4300</td>
+    <td class="tg-9bf2">4400</td>
+    <td class="tg-9bf2">4500</td>
+    <td class="tg-9bf2">4550</td>
+    <td class="tg-9bf2">4650</td>
+    <td class="tg-9bf2">4700</td>
+    <td class="tg-9bf2">4900</td>
+    <td class="tg-9bf2">5050</td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">4米</td>
+    <td class="tg-9bf2">2300</td>
+    <td class="tg-9bf2">2500</td>
+    <td class="tg-9bf2">2700</td>
+    <td class="tg-9bf2">2900</td>
+    <td class="tg-9bf2">3100</td>
+    <td class="tg-9bf2">3300</td>
+    <td class="tg-9bf2">3500</td>
+    <td class="tg-9bf2">3900</td>
+    <td class="tg-9bf2">4200</td>
+    <td class="tg-9bf2">4400</td>
+    <td class="tg-9bf2">4800</td>
+    <td class="tg-9bf2">5000</td>
+    <td class="tg-9bf2">5100</td>
+    <td class="tg-9bf2">5200</td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">3米</td>
+    <td class="tg-9bf2">2600</td>
+    <td class="tg-9bf2">2850</td>
+    <td class="tg-9bf2">3100</td>
+    <td class="tg-9bf2">3400</td>
+    <td class="tg-9bf2">3650</td>
+    <td class="tg-9bf2">3900</td>
+    <td class="tg-9bf2">4200</td>
+    <td class="tg-9bf2">4700</td>
+    <td class="tg-9bf2">5100</td>
+    <td class="tg-9bf2">5400</td>
+    <td class="tg-9bf2">5900</td>
+    <td class="tg-9bf2">6200</td>
+    <td class="tg-9bf2">6300</td>
+    <td class="tg-9bf2">6450</td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">2米</td>
+    <td class="tg-9bf2">3100</td>
+    <td class="tg-9bf2">3500</td>
+    <td class="tg-9bf2">3900</td>
+    <td class="tg-9bf2">4300</td>
+    <td class="tg-9bf2">4700</td>
+    <td class="tg-9bf2">5100</td>
+    <td class="tg-9bf2">5500</td>
+    <td class="tg-9bf2">6300</td>
+    <td class="tg-9bf2">6900</td>
+    <td class="tg-9bf2">7300</td>
+    <td class="tg-9bf2">8100</td>
+    <td class="tg-9bf2">8500</td>
+    <td class="tg-9bf2">8700</td>
+    <td class="tg-9bf2">8900</td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+  </tr>
+  <tr>
+    <td class="tg-c29s">1米</td>
+    <td class="tg-9bf2">4700</td>
+    <td class="tg-9bf2">5500</td>
+    <td class="tg-9bf2">6300</td>
+    <td class="tg-9bf2">7100</td>
+    <td class="tg-9bf2">7900</td>
+    <td class="tg-9bf2">8700</td>
+    <td class="tg-9bf2">9500</td>
+    <td class="tg-9bf2">11100</td>
+    <td class="tg-9bf2">12300</td>
+    <td class="tg-9bf2">13100</td>
+    <td class="tg-9bf2">14700</td>
+    <td class="tg-9bf2">15500</td>
+    <td class="tg-9bf2">15900</td>
+    <td class="tg-9bf2">16300</td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+    <td class="tg-9bf2"></td>
+  </tr>
+</table>
+</div>
 </html>
 
