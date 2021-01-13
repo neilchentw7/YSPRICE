@@ -1,746 +1,900 @@
-<style type="text/css">
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>YS-RMC  AI-PRICING</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+	<body bgcolor="#31b5f7">
+	
+
+	
+
+		<h1 style="text-align: center;"><span style="color: #900C3F;">YS-RMC 含運費報價表</span></h1>
+		<h2 style="text-align: center;"><span style="color: #666699;"></span></h2>
+	<style type="text/css">
+	.tg  {border-collapse:collapse;border-spacing:0;border-color:#C44D58;}
+	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:0px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#C44D58;color:#002b36;background-color:#F9CDAD;}
+	.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:0px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#C44D58;color:#fdf6e3;background-color:#FE4365;}
+	.tg .tg-l0f3{background-color:#67fd9a;text-align:center;vertical-align:top}
+	.tg .tg-d78e{background-color:#9aff99;text-align:center;vertical-align:top}
+	.tg .tg-8gin{background-color:#ffcc67;color:#000000;text-align:center;vertical-align:top}
+	.tg .tg-ifcm{background-color:#ffce93;text-align:center;vertical-align:top}
+	.tg .tg-i81m{background-color:#ffffff;text-align:center;vertical-align:top}
+	</style>
+	<div align="center">
+	<table class="tg">
+	
+
+	  <tr>
+	    <th class="tg-8gin" colspan="8">台七甲<br></th>
+	  </tr>
+	  <tr>
+	    <td class="tg-ifcm">里程碑</td>
+	    <td class="tg-ifcm">鄰近地名</td>
+	    <td class="tg-ifcm">里程碑</td>
+	    <td class="tg-ifcm">鄰近地名</td>
+	    <td class="tg-ifcm">里程碑</td>
+	    <td class="tg-ifcm">鄰近地名</td>
+	    <td class="tg-ifcm">里程碑</td>
+	    <td class="tg-ifcm">鄰近地名</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">0K</td>
+	    <td class="tg-i81m">英仕部落</td>
+	    <td class="tg-d78e">11.5K</td>
+	    <td class="tg-i81m">德荃橋</td>
+	    <td class="tg-l0f3">21K</td>
+	    <td class="tg-i81m">繼光橋</td>
+	    <td class="tg-d78e">53.5K</td>
+	    <td class="tg-i81m">武陵</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">3K</td>
+	    <td class="tg-i81m">棲蘭山莊</td>
+	    <td class="tg-d78e">12K</td>
+	    <td class="tg-i81m">留茂安</td>
+	    <td class="tg-l0f3">22.5K</td>
+	    <td class="tg-i81m">四季平台菜園</td>
+	    <td class="tg-d78e">55.5K</td>
+	    <td class="tg-i81m">志良</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">3.5K</td>
+	    <td class="tg-i81m">家源橋</td>
+	    <td class="tg-d78e">12.5K</td>
+	    <td class="tg-i81m">茂安橋</td>
+	    <td class="tg-l0f3">24.5K</td>
+	    <td class="tg-i81m">則前橋</td>
+	    <td class="tg-d78e">57.5K</td>
+	    <td class="tg-i81m">苗圃(青葉農場)</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">4.5K</td>
+	    <td class="tg-i81m">田古爾溪</td>
+	    <td class="tg-d78e">14K</td>
+	    <td class="tg-i81m">有澗橋(頂茂安)</td>
+	    <td class="tg-l0f3">27.5K</td>
+	    <td class="tg-i81m">美優橋東澳頂</td>
+	    <td class="tg-d78e">61.5K</td>
+	    <td class="tg-i81m">環山</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">5K</td>
+	    <td class="tg-i81m">獨立山</td>
+	    <td class="tg-d78e">16K</td>
+	    <td class="tg-i81m">敦厚橋(加納富)</td>
+	    <td class="tg-l0f3">29.5K</td>
+	    <td class="tg-i81m">南山街</td>
+	    <td class="tg-d78e">65K</td>
+	    <td class="tg-i81m">清泉橋</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">5.5K</td>
+	    <td class="tg-i81m">大同國中</td>
+	    <td class="tg-d78e">17K</td>
+	    <td class="tg-i81m">碧水橋</td>
+	    <td class="tg-l0f3">32K</td>
+	    <td class="tg-i81m">可法橋(紅橋)</td>
+	    <td class="tg-d78e">68.5K</td>
+	    <td class="tg-i81m">松茂</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">7.5K</td>
+	    <td class="tg-i81m">嘉蘭菜園</td>
+	    <td class="tg-d78e">18K</td>
+	    <td class="tg-i81m">四季上下部落</td>
+	    <td class="tg-l0f3">32.5K</td>
+	    <td class="tg-i81m">萬田公廟</td>
+	    <td class="tg-d78e">74K</td>
+	    <td class="tg-i81m">和平梨山</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">8K</td>
+	    <td class="tg-i81m">嘉興橋</td>
+	    <td class="tg-d78e">18K</td>
+	    <td class="tg-i81m">四季國小</td>
+	    <td class="tg-l0f3">45.5K</td>
+	    <td class="tg-i81m">思源</td>
+	    <td class="tg-d78e">74K+5</td>
+	    <td class="tg-i81m">福壽山</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">8.5K</td>
+	    <td class="tg-i81m">嘉惠橋</td>
+	    <td class="tg-d78e">19K</td>
+	    <td class="tg-i81m">四季一橋</td>
+	    <td class="tg-l0f3">50K</td>
+	    <td class="tg-i81m">勝光</td>
+	    <td class="tg-d78e">74K+8</td>
+	    <td class="tg-i81m">福壽山天池</td>
+	  </tr>
+	  <tr>
+	    <td class="tg-d78e">10K</td>
+	    <td class="tg-i81m">事故白車彎</td>
+	    <td class="tg-d78e">19.5K</td>
+	    <td class="tg-i81m">香腸攤</td>
+	    <td class="tg-l0f3">51K</td>
+	    <td class="tg-i81m">善莊</td>
+	    <td class="tg-d78e">74K+5</td>
+	    <td class="tg-i81m">新佳陽(東勢方向)</td>
+	  </tr>
+	
+
+	</table>
+	</div>
+	
+
+	
+
+	</body>
+	
+
+	<style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-lto5{background-color:#f8a102;border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-pvu9{background-color:#fffc9e;border-color:inherit;color:#fe0000;font-family:"Arial Black", Gadget, sans-serif !important;;
-  font-size:15px;text-align:center;vertical-align:top}
+.tg .tg-7od5{background-color:#9aff99;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-60rc{background-color:#fcff2f;border-color:inherit;color:#fe0000;font-weight:bold;text-align:center;vertical-align:top}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-pvu9">牌/底價</th>
+    <th class="tg-60rc">牌/底價</th>
     <th class="tg-0pky">牌8</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">8</th>
     <th class="tg-0pky">牌7</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">7</th>
     <th class="tg-0pky">牌6</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">6</th>
     <th class="tg-0pky">牌5</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">5</th>
     <th class="tg-0pky">牌4</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">4</th>
     <th class="tg-0pky">牌3</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">3</th>
     <th class="tg-0pky">牌2</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">2</th>
     <th class="tg-0pky">牌1</th>
-    <th class="tg-lto5">常態</th>
+    <th class="tg-7od5">常態</th>
     <th class="tg-0pky">1</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-pvu9">公司一帶</td>
+    <td class="tg-60rc">公司一帶</td>
     <td class="tg-0pky">1900</td>
-    <td class="tg-lto5">1850</td>
+    <td class="tg-7od5">1850</td>
     <td class="tg-0pky">1800</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1900</td>
+    <td class="tg-7od5">1900</td>
     <td class="tg-0pky">1850</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1950</td>
+    <td class="tg-7od5">1950</td>
     <td class="tg-0pky">1900</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1980</td>
+    <td class="tg-7od5">1980</td>
     <td class="tg-0pky">1930</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2000</td>
+    <td class="tg-7od5">2000</td>
     <td class="tg-0pky">1950</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2050</td>
+    <td class="tg-7od5">2050</td>
     <td class="tg-0pky">2010</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2250</td>
+    <td class="tg-7od5">2250</td>
     <td class="tg-0pky">2230</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2650</td>
+    <td class="tg-7od5">2650</td>
     <td class="tg-0pky">2600</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">天送埤大洲竹林</td>
+    <td class="tg-60rc">天送埤大洲竹林</td>
     <td class="tg-0pky">1900</td>
-    <td class="tg-lto5">1850</td>
+    <td class="tg-7od5">1850</td>
     <td class="tg-0pky">1800</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1900</td>
+    <td class="tg-7od5">1900</td>
     <td class="tg-0pky">1850</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1950</td>
+    <td class="tg-7od5">1950</td>
     <td class="tg-0pky">1900</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2000</td>
+    <td class="tg-7od5">2000</td>
     <td class="tg-0pky">1950</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2050</td>
+    <td class="tg-7od5">2050</td>
     <td class="tg-0pky">2000</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2100</td>
+    <td class="tg-7od5">2100</td>
     <td class="tg-0pky">2060</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2340</td>
+    <td class="tg-7od5">2340</td>
     <td class="tg-0pky">2320</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2850</td>
+    <td class="tg-7od5">2850</td>
     <td class="tg-0pky">2800</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">羅東宜蘭員山</td>
+    <td class="tg-60rc">羅東宜蘭員山</td>
     <td class="tg-0pky">1950</td>
-    <td class="tg-lto5">1880</td>
+    <td class="tg-7od5">1880</td>
     <td class="tg-0pky">1830</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1930</td>
+    <td class="tg-7od5">1930</td>
     <td class="tg-0pky">1880</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1980</td>
+    <td class="tg-7od5">1980</td>
     <td class="tg-0pky">1900</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2020</td>
+    <td class="tg-7od5">2020</td>
     <td class="tg-0pky">1970</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2125</td>
+    <td class="tg-7od5">2125</td>
     <td class="tg-0pky">2075</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2220</td>
+    <td class="tg-7od5">2220</td>
     <td class="tg-0pky">2180</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2520</td>
+    <td class="tg-7od5">2520</td>
     <td class="tg-0pky">2500</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">3250</td>
+    <td class="tg-7od5">3250</td>
     <td class="tg-0pky">3200</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">寒溪松羅玉蘭</td>
+    <td class="tg-60rc">寒溪松羅玉蘭</td>
     <td class="tg-0pky">2000</td>
-    <td class="tg-lto5">1900</td>
+    <td class="tg-7od5">1900</td>
     <td class="tg-0pky">1850</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">1950</td>
+    <td class="tg-7od5">1950</td>
     <td class="tg-0pky">1900</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2000</td>
+    <td class="tg-7od5">2000</td>
     <td class="tg-0pky">1910</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2040</td>
+    <td class="tg-7od5">2040</td>
     <td class="tg-0pky">1990</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2140</td>
+    <td class="tg-7od5">2140</td>
     <td class="tg-0pky">2090</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2240</td>
+    <td class="tg-7od5">2240</td>
     <td class="tg-0pky">2200</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2550</td>
+    <td class="tg-7od5">2550</td>
     <td class="tg-0pky">2530</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">3550</td>
+    <td class="tg-7od5">3550</td>
     <td class="tg-0pky">3500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">牛鬥英士大溪</td>
+    <td class="tg-60rc">牛鬥英士大溪</td>
     <td class="tg-0pky">2050</td>
-    <td class="tg-lto5">1950</td>
+    <td class="tg-7od5">1950</td>
     <td class="tg-0pky">1875</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2000</td>
+    <td class="tg-7od5">2000</td>
     <td class="tg-0pky">1925</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2050</td>
+    <td class="tg-7od5">2050</td>
     <td class="tg-0pky">1990</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2120</td>
+    <td class="tg-7od5">2120</td>
     <td class="tg-0pky">2070</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2250</td>
+    <td class="tg-7od5">2250</td>
     <td class="tg-0pky">2200</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2370</td>
+    <td class="tg-7od5">2370</td>
     <td class="tg-0pky">2330</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">2740</td>
+    <td class="tg-7od5">2740</td>
     <td class="tg-0pky">2720</td>
     <td class="tg-0pky"></td>
-    <td class="tg-lto5">4050</td>
+    <td class="tg-7od5">4050</td>
     <td class="tg-0pky">4000</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">0k</td>
+    <td class="tg-60rc">0k</td>
     <td class="tg-0pky">2100</td>
-    <td class="tg-lto5">2000</td>
+    <td class="tg-7od5">2000</td>
     <td class="tg-0pky">1950</td>
     <td class="tg-0pky">2250</td>
-    <td class="tg-lto5">2060</td>
+    <td class="tg-7od5">2060</td>
     <td class="tg-0pky">2010</td>
     <td class="tg-0pky">2300</td>
-    <td class="tg-lto5">2140</td>
+    <td class="tg-7od5">2140</td>
     <td class="tg-0pky">2090</td>
     <td class="tg-0pky">2350</td>
-    <td class="tg-lto5">2240</td>
+    <td class="tg-7od5">2240</td>
     <td class="tg-0pky">2190</td>
     <td class="tg-0pky">2550</td>
-    <td class="tg-lto5">2400</td>
+    <td class="tg-7od5">2400</td>
     <td class="tg-0pky">2350</td>
     <td class="tg-0pky">2750</td>
-    <td class="tg-lto5">2560</td>
+    <td class="tg-7od5">2560</td>
     <td class="tg-0pky">2510</td>
     <td class="tg-0pky">3300</td>
-    <td class="tg-lto5">3040</td>
+    <td class="tg-7od5">3040</td>
     <td class="tg-0pky">2990</td>
     <td class="tg-0pky">4700</td>
-    <td class="tg-lto5">4550</td>
+    <td class="tg-7od5">4550</td>
     <td class="tg-0pky">4500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">5k</td>
+    <td class="tg-60rc">5k</td>
     <td class="tg-0pky">2150</td>
-    <td class="tg-lto5">2070</td>
+    <td class="tg-7od5">2070</td>
     <td class="tg-0pky">2020</td>
     <td class="tg-0pky">2250</td>
-    <td class="tg-lto5">2140</td>
+    <td class="tg-7od5">2140</td>
     <td class="tg-0pky">2090</td>
     <td class="tg-0pky">2350</td>
-    <td class="tg-lto5">2220</td>
+    <td class="tg-7od5">2220</td>
     <td class="tg-0pky">2170</td>
     <td class="tg-0pky">2450</td>
-    <td class="tg-lto5">2350</td>
+    <td class="tg-7od5">2350</td>
     <td class="tg-0pky">2300</td>
     <td class="tg-0pky">2680</td>
-    <td class="tg-lto5">2530</td>
+    <td class="tg-7od5">2530</td>
     <td class="tg-0pky">2480</td>
     <td class="tg-0pky">2950</td>
-    <td class="tg-lto5">2720</td>
+    <td class="tg-7od5">2720</td>
     <td class="tg-0pky">2670</td>
     <td class="tg-0pky">3600</td>
-    <td class="tg-lto5">3280</td>
+    <td class="tg-7od5">3280</td>
     <td class="tg-0pky">3230</td>
     <td class="tg-0pky">5500</td>
-    <td class="tg-lto5">5050</td>
+    <td class="tg-7od5">5050</td>
     <td class="tg-0pky">5000</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">10k</td>
+    <td class="tg-60rc">10k</td>
     <td class="tg-0pky">2200</td>
-    <td class="tg-lto5">2150</td>
+    <td class="tg-7od5">2150</td>
     <td class="tg-0pky">2100</td>
     <td class="tg-0pky">2350</td>
-    <td class="tg-lto5">2220</td>
+    <td class="tg-7od5">2220</td>
     <td class="tg-0pky">2170</td>
     <td class="tg-0pky">2500</td>
-    <td class="tg-lto5">2330</td>
+    <td class="tg-7od5">2330</td>
     <td class="tg-0pky">2280</td>
     <td class="tg-0pky">2650</td>
-    <td class="tg-lto5">2470</td>
+    <td class="tg-7od5">2470</td>
     <td class="tg-0pky">2420</td>
     <td class="tg-0pky">2800</td>
-    <td class="tg-lto5">2690</td>
+    <td class="tg-7od5">2690</td>
     <td class="tg-0pky">2640</td>
     <td class="tg-0pky">3200</td>
-    <td class="tg-lto5">2910</td>
+    <td class="tg-7od5">2910</td>
     <td class="tg-0pky">2860</td>
     <td class="tg-0pky">3900</td>
-    <td class="tg-lto5">3560</td>
+    <td class="tg-7od5">3560</td>
     <td class="tg-0pky">3510</td>
     <td class="tg-0pky">6300</td>
-    <td class="tg-lto5">5550</td>
+    <td class="tg-7od5">5550</td>
     <td class="tg-0pky">5500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">15k</td>
+    <td class="tg-60rc">15k</td>
     <td class="tg-0pky">2250</td>
-    <td class="tg-lto5">2220</td>
+    <td class="tg-7od5">2220</td>
     <td class="tg-0pky">2170</td>
     <td class="tg-0pky">2400</td>
-    <td class="tg-lto5">2310</td>
+    <td class="tg-7od5">2310</td>
     <td class="tg-0pky">2260</td>
     <td class="tg-0pky">2550</td>
-    <td class="tg-lto5">2430</td>
+    <td class="tg-7od5">2430</td>
     <td class="tg-0pky">2380</td>
     <td class="tg-0pky">2700</td>
-    <td class="tg-lto5">2600</td>
+    <td class="tg-7od5">2600</td>
     <td class="tg-0pky">2550</td>
     <td class="tg-0pky">2950</td>
-    <td class="tg-lto5">2850</td>
+    <td class="tg-7od5">2850</td>
     <td class="tg-0pky">2800</td>
     <td class="tg-0pky">3500</td>
-    <td class="tg-lto5">3090</td>
+    <td class="tg-7od5">3090</td>
     <td class="tg-0pky">3040</td>
     <td class="tg-0pky">4200</td>
-    <td class="tg-lto5">3840</td>
+    <td class="tg-7od5">3840</td>
     <td class="tg-0pky">3790</td>
     <td class="tg-0pky">7100</td>
-    <td class="tg-lto5">6050</td>
+    <td class="tg-7od5">6050</td>
     <td class="tg-0pky">6000</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">20k</td>
+    <td class="tg-60rc">20k</td>
     <td class="tg-0pky">2300</td>
-    <td class="tg-lto5">2300</td>
+    <td class="tg-7od5">2300</td>
     <td class="tg-0pky">2250</td>
     <td class="tg-0pky">2450</td>
-    <td class="tg-lto5">2400</td>
+    <td class="tg-7od5">2400</td>
     <td class="tg-0pky">2350</td>
     <td class="tg-0pky">2600</td>
-    <td class="tg-lto5">2530</td>
+    <td class="tg-7od5">2530</td>
     <td class="tg-0pky">2480</td>
     <td class="tg-0pky">2750</td>
-    <td class="tg-lto5">2720</td>
+    <td class="tg-7od5">2720</td>
     <td class="tg-0pky">2670</td>
     <td class="tg-0pky">3150</td>
-    <td class="tg-lto5">3000</td>
+    <td class="tg-7od5">3000</td>
     <td class="tg-0pky">2950</td>
     <td class="tg-0pky">3700</td>
-    <td class="tg-lto5">3280</td>
+    <td class="tg-7od5">3280</td>
     <td class="tg-0pky">3230</td>
     <td class="tg-0pky">4500</td>
-    <td class="tg-lto5">4120</td>
+    <td class="tg-7od5">4120</td>
     <td class="tg-0pky">4070</td>
     <td class="tg-0pky">7900</td>
-    <td class="tg-lto5">6550</td>
+    <td class="tg-7od5">6550</td>
     <td class="tg-0pky">6500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">25k</td>
+    <td class="tg-60rc">25k</td>
     <td class="tg-0pky">2400</td>
-    <td class="tg-lto5">2400</td>
+    <td class="tg-7od5">2400</td>
     <td class="tg-0pky">2350</td>
     <td class="tg-0pky">2550</td>
-    <td class="tg-lto5">2500</td>
+    <td class="tg-7od5">2500</td>
     <td class="tg-0pky">2450</td>
     <td class="tg-0pky">2700</td>
-    <td class="tg-lto5">2650</td>
+    <td class="tg-7od5">2650</td>
     <td class="tg-0pky">2600</td>
     <td class="tg-0pky">2850</td>
-    <td class="tg-lto5">2860</td>
+    <td class="tg-7od5">2860</td>
     <td class="tg-0pky">2810</td>
     <td class="tg-0pky">3300</td>
-    <td class="tg-lto5">3180</td>
+    <td class="tg-7od5">3180</td>
     <td class="tg-0pky">3130</td>
     <td class="tg-0pky">3900</td>
-    <td class="tg-lto5">3490</td>
+    <td class="tg-7od5">3490</td>
     <td class="tg-0pky">3440</td>
     <td class="tg-0pky">4900</td>
-    <td class="tg-lto5">4440</td>
+    <td class="tg-7od5">4440</td>
     <td class="tg-0pky">4390</td>
     <td class="tg-0pky">8700</td>
-    <td class="tg-lto5">7550</td>
+    <td class="tg-7od5">7550</td>
     <td class="tg-0pky">7500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">30k</td>
+    <td class="tg-60rc">30k</td>
     <td class="tg-0pky">2500</td>
-    <td class="tg-lto5">2500</td>
+    <td class="tg-7od5">2500</td>
     <td class="tg-0pky">2450</td>
     <td class="tg-0pky">2650</td>
-    <td class="tg-lto5">2630</td>
+    <td class="tg-7od5">2630</td>
     <td class="tg-0pky">2580</td>
     <td class="tg-0pky">2900</td>
-    <td class="tg-lto5">2800</td>
+    <td class="tg-7od5">2800</td>
     <td class="tg-0pky">2750</td>
     <td class="tg-0pky">3050</td>
-    <td class="tg-lto5">3030</td>
+    <td class="tg-7od5">3030</td>
     <td class="tg-0pky">2980</td>
     <td class="tg-0pky">3600</td>
-    <td class="tg-lto5">3390</td>
+    <td class="tg-7od5">3390</td>
     <td class="tg-0pky">3340</td>
     <td class="tg-0pky">4200</td>
-    <td class="tg-lto5">3750</td>
+    <td class="tg-7od5">3750</td>
     <td class="tg-0pky">3700</td>
     <td class="tg-0pky">5350</td>
-    <td class="tg-lto5">4820</td>
+    <td class="tg-7od5">4820</td>
     <td class="tg-0pky">4770</td>
     <td class="tg-0pky">9500</td>
-    <td class="tg-lto5">8050</td>
+    <td class="tg-7od5">8050</td>
     <td class="tg-0pky">8000</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">35k</td>
+    <td class="tg-60rc">35k</td>
     <td class="tg-0pky">2700</td>
-    <td class="tg-lto5">2600</td>
+    <td class="tg-7od5">2600</td>
     <td class="tg-0pky">2550</td>
     <td class="tg-0pky">2900</td>
-    <td class="tg-lto5">2740</td>
+    <td class="tg-7od5">2740</td>
     <td class="tg-0pky">2690</td>
     <td class="tg-0pky">3050</td>
-    <td class="tg-lto5">2920</td>
+    <td class="tg-7od5">2920</td>
     <td class="tg-0pky">2870</td>
     <td class="tg-0pky">3200</td>
-    <td class="tg-lto5">3190</td>
+    <td class="tg-7od5">3190</td>
     <td class="tg-0pky">3140</td>
     <td class="tg-0pky">3800</td>
-    <td class="tg-lto5">3580</td>
+    <td class="tg-7od5">3580</td>
     <td class="tg-0pky">3530</td>
     <td class="tg-0pky">4500</td>
-    <td class="tg-lto5">3980</td>
+    <td class="tg-7od5">3980</td>
     <td class="tg-0pky">3930</td>
     <td class="tg-0pky">5800</td>
-    <td class="tg-lto5">5170</td>
+    <td class="tg-7od5">5170</td>
     <td class="tg-0pky">5120</td>
     <td class="tg-0pky">11100</td>
-    <td class="tg-lto5">8550</td>
+    <td class="tg-7od5">8550</td>
     <td class="tg-0pky">8500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">40k</td>
+    <td class="tg-60rc">40k</td>
     <td class="tg-0pky">2850</td>
-    <td class="tg-lto5">2700</td>
+    <td class="tg-7od5">2700</td>
     <td class="tg-0pky">2650</td>
     <td class="tg-0pky">3050</td>
-    <td class="tg-lto5">2830</td>
+    <td class="tg-7od5">2830</td>
     <td class="tg-0pky">2780</td>
     <td class="tg-0pky">3200</td>
-    <td class="tg-lto5">3030</td>
+    <td class="tg-7od5">3030</td>
     <td class="tg-0pky">2980</td>
     <td class="tg-0pky">3350</td>
-    <td class="tg-lto5">3320</td>
+    <td class="tg-7od5">3320</td>
     <td class="tg-0pky">3270</td>
     <td class="tg-0pky">4100</td>
-    <td class="tg-lto5">3750</td>
+    <td class="tg-7od5">3750</td>
     <td class="tg-0pky">3700</td>
     <td class="tg-0pky">4800</td>
-    <td class="tg-lto5">4180</td>
+    <td class="tg-7od5">4180</td>
     <td class="tg-0pky">4130</td>
     <td class="tg-0pky">6350</td>
-    <td class="tg-lto5">5470</td>
+    <td class="tg-7od5">5470</td>
     <td class="tg-0pky">5420</td>
     <td class="tg-0pky">12300</td>
-    <td class="tg-lto5">9050</td>
+    <td class="tg-7od5">9050</td>
     <td class="tg-0pky">9000</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">45k</td>
+    <td class="tg-60rc">45k</td>
     <td class="tg-0pky">2950</td>
-    <td class="tg-lto5">2800</td>
+    <td class="tg-7od5">2800</td>
     <td class="tg-0pky">2750</td>
     <td class="tg-0pky">3200</td>
-    <td class="tg-lto5">2960</td>
+    <td class="tg-7od5">2960</td>
     <td class="tg-0pky">2910</td>
     <td class="tg-0pky">3350</td>
-    <td class="tg-lto5">3190</td>
+    <td class="tg-7od5">3190</td>
     <td class="tg-0pky">3140</td>
     <td class="tg-0pky">3500</td>
-    <td class="tg-lto5">3510</td>
+    <td class="tg-7od5">3510</td>
     <td class="tg-0pky">3460</td>
     <td class="tg-0pky">4300</td>
-    <td class="tg-lto5">3980</td>
+    <td class="tg-7od5">3980</td>
     <td class="tg-0pky">3930</td>
     <td class="tg-0pky">5100</td>
-    <td class="tg-lto5">4460</td>
+    <td class="tg-7od5">4460</td>
     <td class="tg-0pky">4410</td>
     <td class="tg-0pky">6600</td>
-    <td class="tg-lto5">5890</td>
+    <td class="tg-7od5">5890</td>
     <td class="tg-0pky">5840</td>
     <td class="tg-0pky">13100</td>
-    <td class="tg-lto5">9750</td>
+    <td class="tg-7od5">9750</td>
     <td class="tg-0pky">9700</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">50k</td>
+    <td class="tg-60rc">50k</td>
     <td class="tg-0pky">3150</td>
-    <td class="tg-lto5">2910</td>
+    <td class="tg-7od5">2910</td>
     <td class="tg-0pky">2860</td>
     <td class="tg-0pky">3400</td>
-    <td class="tg-lto5">3100</td>
+    <td class="tg-7od5">3100</td>
     <td class="tg-0pky">3050</td>
     <td class="tg-0pky">3550</td>
-    <td class="tg-lto5">3350</td>
+    <td class="tg-7od5">3350</td>
     <td class="tg-0pky">3300</td>
     <td class="tg-0pky">3700</td>
-    <td class="tg-lto5">3700</td>
+    <td class="tg-7od5">3700</td>
     <td class="tg-0pky">3650</td>
     <td class="tg-0pky">4600</td>
-    <td class="tg-lto5">4230</td>
+    <td class="tg-7od5">4230</td>
     <td class="tg-0pky">4180</td>
     <td class="tg-0pky">5400</td>
-    <td class="tg-lto5">4750</td>
+    <td class="tg-7od5">4750</td>
     <td class="tg-0pky">4700</td>
     <td class="tg-0pky">7000</td>
-    <td class="tg-lto5">6330</td>
+    <td class="tg-7od5">6330</td>
     <td class="tg-0pky">6280</td>
     <td class="tg-0pky">12000</td>
-    <td class="tg-lto5">10550</td>
+    <td class="tg-7od5">10550</td>
     <td class="tg-0pky">10500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">55k武陵</td>
+    <td class="tg-60rc">55k武陵</td>
     <td class="tg-0pky">3250</td>
-    <td class="tg-lto5">3020</td>
+    <td class="tg-7od5">3020</td>
     <td class="tg-0pky">2970</td>
     <td class="tg-0pky">3500</td>
-    <td class="tg-lto5">3230</td>
+    <td class="tg-7od5">3230</td>
     <td class="tg-0pky">3180</td>
     <td class="tg-0pky">3650</td>
-    <td class="tg-lto5">3500</td>
+    <td class="tg-7od5">3500</td>
     <td class="tg-0pky">3450</td>
     <td class="tg-0pky">3850</td>
-    <td class="tg-lto5">3880</td>
+    <td class="tg-7od5">3880</td>
     <td class="tg-0pky">3830</td>
     <td class="tg-0pky">4900</td>
-    <td class="tg-lto5">4450</td>
+    <td class="tg-7od5">4450</td>
     <td class="tg-0pky">4400</td>
     <td class="tg-0pky">5800</td>
-    <td class="tg-lto5">5010</td>
+    <td class="tg-7od5">5010</td>
     <td class="tg-0pky">4960</td>
     <td class="tg-0pky">7500</td>
-    <td class="tg-lto5">6720</td>
+    <td class="tg-7od5">6720</td>
     <td class="tg-0pky">6670</td>
     <td class="tg-0pky">12500</td>
-    <td class="tg-lto5">11550</td>
+    <td class="tg-7od5">11550</td>
     <td class="tg-0pky">11500</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">60k</td>
+    <td class="tg-60rc">60k</td>
     <td class="tg-0pky">3300</td>
-    <td class="tg-lto5">3120</td>
+    <td class="tg-7od5">3120</td>
     <td class="tg-0pky">3070</td>
     <td class="tg-0pky">3450</td>
-    <td class="tg-lto5">3330</td>
+    <td class="tg-7od5">3330</td>
     <td class="tg-0pky">3280</td>
     <td class="tg-0pky">3750</td>
-    <td class="tg-lto5">3650</td>
+    <td class="tg-7od5">3650</td>
     <td class="tg-0pky">3600</td>
     <td class="tg-0pky">4050</td>
-    <td class="tg-lto5">4080</td>
+    <td class="tg-7od5">4080</td>
     <td class="tg-0pky">4030</td>
     <td class="tg-0pky">5200</td>
-    <td class="tg-lto5">4650</td>
+    <td class="tg-7od5">4650</td>
     <td class="tg-0pky">4600</td>
     <td class="tg-0pky">6200</td>
-    <td class="tg-lto5">5250</td>
+    <td class="tg-7od5">5250</td>
     <td class="tg-0pky">5200</td>
     <td class="tg-0pky">8700</td>
-    <td class="tg-lto5">7150</td>
+    <td class="tg-7od5">7150</td>
     <td class="tg-0pky">7100</td>
     <td class="tg-0pky">13000</td>
-    <td class="tg-lto5">12300</td>
+    <td class="tg-7od5">12300</td>
     <td class="tg-0pky">12250</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">65k</td>
+    <td class="tg-60rc">65k</td>
     <td class="tg-0pky">3350</td>
-    <td class="tg-lto5">3230</td>
+    <td class="tg-7od5">3230</td>
     <td class="tg-0pky">3180</td>
     <td class="tg-0pky">3550</td>
-    <td class="tg-lto5">3450</td>
+    <td class="tg-7od5">3450</td>
     <td class="tg-0pky">3400</td>
     <td class="tg-0pky">3850</td>
-    <td class="tg-lto5">3800</td>
+    <td class="tg-7od5">3800</td>
     <td class="tg-0pky">3750</td>
     <td class="tg-0pky">4150</td>
-    <td class="tg-lto5">4250</td>
+    <td class="tg-7od5">4250</td>
     <td class="tg-0pky">4200</td>
     <td class="tg-0pky">5500</td>
-    <td class="tg-lto5">4900</td>
+    <td class="tg-7od5">4900</td>
     <td class="tg-0pky">4850</td>
     <td class="tg-0pky">6600</td>
-    <td class="tg-lto5">5550</td>
+    <td class="tg-7od5">5550</td>
     <td class="tg-0pky">5500</td>
     <td class="tg-0pky">8900</td>
-    <td class="tg-lto5">7550</td>
+    <td class="tg-7od5">7550</td>
     <td class="tg-0pky">7500</td>
     <td class="tg-0pky">13500</td>
-    <td class="tg-lto5">13200</td>
+    <td class="tg-7od5">13200</td>
     <td class="tg-0pky">13080</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">70k</td>
+    <td class="tg-60rc">70k</td>
     <td class="tg-0pky">3400</td>
-    <td class="tg-lto5">3330</td>
+    <td class="tg-7od5">3330</td>
     <td class="tg-0pky">3280</td>
     <td class="tg-0pky">3600</td>
-    <td class="tg-lto5">3570</td>
+    <td class="tg-7od5">3570</td>
     <td class="tg-0pky">3520</td>
     <td class="tg-0pky">3900</td>
-    <td class="tg-lto5">3950</td>
+    <td class="tg-7od5">3950</td>
     <td class="tg-0pky">3900</td>
     <td class="tg-0pky">4200</td>
-    <td class="tg-lto5">4450</td>
+    <td class="tg-7od5">4450</td>
     <td class="tg-0pky">4400</td>
     <td class="tg-0pky">5800</td>
-    <td class="tg-lto5">5150</td>
+    <td class="tg-7od5">5150</td>
     <td class="tg-0pky">5100</td>
     <td class="tg-0pky">7000</td>
-    <td class="tg-lto5">5850</td>
+    <td class="tg-7od5">5850</td>
     <td class="tg-0pky">5800</td>
     <td class="tg-0pky">9400</td>
-    <td class="tg-lto5">7950</td>
+    <td class="tg-7od5">7950</td>
     <td class="tg-0pky">7900</td>
     <td class="tg-0pky">14500</td>
-    <td class="tg-lto5">14000</td>
+    <td class="tg-7od5">14000</td>
     <td class="tg-0pky">13910</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">75k</td>
+    <td class="tg-60rc">75k</td>
     <td class="tg-0pky">3450</td>
-    <td class="tg-lto5">3430</td>
+    <td class="tg-7od5">3430</td>
     <td class="tg-0pky">3380</td>
     <td class="tg-0pky">3650</td>
-    <td class="tg-lto5">3670</td>
+    <td class="tg-7od5">3670</td>
     <td class="tg-0pky">3620</td>
     <td class="tg-0pky">3950</td>
-    <td class="tg-lto5">4080</td>
+    <td class="tg-7od5">4080</td>
     <td class="tg-0pky">4030</td>
     <td class="tg-0pky">4250</td>
-    <td class="tg-lto5">4650</td>
+    <td class="tg-7od5">4650</td>
     <td class="tg-0pky">4600</td>
     <td class="tg-0pky">6100</td>
-    <td class="tg-lto5">5400</td>
+    <td class="tg-7od5">5400</td>
     <td class="tg-0pky">5350</td>
     <td class="tg-0pky">7400</td>
-    <td class="tg-lto5">6100</td>
+    <td class="tg-7od5">6100</td>
     <td class="tg-0pky">6050</td>
     <td class="tg-0pky">10000</td>
-    <td class="tg-lto5">8400</td>
+    <td class="tg-7od5">8400</td>
     <td class="tg-0pky">8350</td>
     <td class="tg-0pky">15000</td>
-    <td class="tg-lto5">14800</td>
+    <td class="tg-7od5">14800</td>
     <td class="tg-0pky">14740</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">80k</td>
+    <td class="tg-60rc">80k</td>
     <td class="tg-0pky">3500</td>
-    <td class="tg-lto5">3530</td>
+    <td class="tg-7od5">3530</td>
     <td class="tg-0pky">3480</td>
     <td class="tg-0pky">3700</td>
-    <td class="tg-lto5">3770</td>
+    <td class="tg-7od5">3770</td>
     <td class="tg-0pky">3720</td>
     <td class="tg-0pky">4000</td>
-    <td class="tg-lto5">4230</td>
+    <td class="tg-7od5">4230</td>
     <td class="tg-0pky">4180</td>
     <td class="tg-0pky">4300</td>
-    <td class="tg-lto5">4800</td>
+    <td class="tg-7od5">4800</td>
     <td class="tg-0pky">4750</td>
     <td class="tg-0pky">6400</td>
-    <td class="tg-lto5">5600</td>
+    <td class="tg-7od5">5600</td>
     <td class="tg-0pky">5550</td>
     <td class="tg-0pky">7800</td>
-    <td class="tg-lto5">6400</td>
+    <td class="tg-7od5">6400</td>
     <td class="tg-0pky">6350</td>
     <td class="tg-0pky">10500</td>
-    <td class="tg-lto5">8800</td>
+    <td class="tg-7od5">8800</td>
     <td class="tg-0pky">8750</td>
     <td class="tg-0pky">16000</td>
-    <td class="tg-lto5">15600</td>
+    <td class="tg-7od5">15600</td>
     <td class="tg-0pky">15570</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">85k</td>
+    <td class="tg-60rc">85k</td>
     <td class="tg-0pky">3600</td>
-    <td class="tg-lto5">3630</td>
+    <td class="tg-7od5">3630</td>
     <td class="tg-0pky">3580</td>
     <td class="tg-0pky">3800</td>
-    <td class="tg-lto5">3920</td>
+    <td class="tg-7od5">3920</td>
     <td class="tg-0pky">3870</td>
     <td class="tg-0pky">4100</td>
-    <td class="tg-lto5">4380</td>
+    <td class="tg-7od5">4380</td>
     <td class="tg-0pky">4330</td>
     <td class="tg-0pky">4400</td>
-    <td class="tg-lto5">5000</td>
+    <td class="tg-7od5">5000</td>
     <td class="tg-0pky">4950</td>
     <td class="tg-0pky">6700</td>
-    <td class="tg-lto5">5850</td>
+    <td class="tg-7od5">5850</td>
     <td class="tg-0pky">5800</td>
     <td class="tg-0pky">8200</td>
-    <td class="tg-lto5">6700</td>
+    <td class="tg-7od5">6700</td>
     <td class="tg-0pky">6650</td>
     <td class="tg-0pky">11000</td>
-    <td class="tg-lto5">9300</td>
+    <td class="tg-7od5">9300</td>
     <td class="tg-0pky">9200</td>
     <td class="tg-0pky">17000</td>
-    <td class="tg-lto5">16500</td>
+    <td class="tg-7od5">16500</td>
     <td class="tg-0pky">16400</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">90k</td>
+    <td class="tg-60rc">90k</td>
     <td class="tg-0pky">3700</td>
-    <td class="tg-lto5">3750</td>
+    <td class="tg-7od5">3750</td>
     <td class="tg-0pky">3700</td>
     <td class="tg-0pky">3900</td>
-    <td class="tg-lto5">4020</td>
+    <td class="tg-7od5">4020</td>
     <td class="tg-0pky">3970</td>
     <td class="tg-0pky">4200</td>
-    <td class="tg-lto5">4480</td>
+    <td class="tg-7od5">4480</td>
     <td class="tg-0pky">4430</td>
     <td class="tg-0pky">4500</td>
-    <td class="tg-lto5">5100</td>
+    <td class="tg-7od5">5100</td>
     <td class="tg-0pky">5050</td>
     <td class="tg-0pky">7000</td>
-    <td class="tg-lto5">6050</td>
+    <td class="tg-7od5">6050</td>
     <td class="tg-0pky">6000</td>
     <td class="tg-0pky">8600</td>
-    <td class="tg-lto5">6950</td>
+    <td class="tg-7od5">6950</td>
     <td class="tg-0pky">6900</td>
     <td class="tg-0pky">11500</td>
-    <td class="tg-lto5">9600</td>
+    <td class="tg-7od5">9600</td>
     <td class="tg-0pky">9614</td>
     <td class="tg-0pky">18000</td>
-    <td class="tg-lto5">17500</td>
+    <td class="tg-7od5">17500</td>
     <td class="tg-0pky">17230</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">95k</td>
+    <td class="tg-60rc">95k</td>
     <td class="tg-0pky">3800</td>
-    <td class="tg-lto5">3850</td>
+    <td class="tg-7od5">3850</td>
     <td class="tg-0pky">3800</td>
     <td class="tg-0pky">4000</td>
-    <td class="tg-lto5">4150</td>
+    <td class="tg-7od5">4150</td>
     <td class="tg-0pky">4100</td>
     <td class="tg-0pky">4300</td>
-    <td class="tg-lto5">4610</td>
+    <td class="tg-7od5">4610</td>
     <td class="tg-0pky">4560</td>
     <td class="tg-0pky">4600</td>
-    <td class="tg-lto5">5350</td>
+    <td class="tg-7od5">5350</td>
     <td class="tg-0pky">5300</td>
     <td class="tg-0pky">7300</td>
-    <td class="tg-lto5">6300</td>
+    <td class="tg-7od5">6300</td>
     <td class="tg-0pky">6250</td>
     <td class="tg-0pky">9000</td>
-    <td class="tg-lto5">7250</td>
+    <td class="tg-7od5">7250</td>
     <td class="tg-0pky">7200</td>
     <td class="tg-0pky">12000</td>
-    <td class="tg-lto5">11000</td>
+    <td class="tg-7od5">11000</td>
     <td class="tg-0pky">10033</td>
     <td class="tg-0pky">19000</td>
-    <td class="tg-lto5">18500</td>
+    <td class="tg-7od5">18500</td>
     <td class="tg-0pky">18060</td>
   </tr>
   <tr>
-    <td class="tg-pvu9">100k</td>
+    <td class="tg-60rc">100k</td>
     <td class="tg-0pky">3900</td>
-    <td class="tg-lto5">3950</td>
+    <td class="tg-7od5">3950</td>
     <td class="tg-0pky">3900</td>
     <td class="tg-0pky">4100</td>
-    <td class="tg-lto5">4250</td>
+    <td class="tg-7od5">4250</td>
     <td class="tg-0pky">4200</td>
     <td class="tg-0pky">4400</td>
-    <td class="tg-lto5">4710</td>
+    <td class="tg-7od5">4710</td>
     <td class="tg-0pky">4660</td>
     <td class="tg-0pky">4700</td>
-    <td class="tg-lto5">5550</td>
+    <td class="tg-7od5">5550</td>
     <td class="tg-0pky">5500</td>
     <td class="tg-0pky">7600</td>
-    <td class="tg-lto5">6550</td>
+    <td class="tg-7od5">6550</td>
     <td class="tg-0pky">6500</td>
     <td class="tg-0pky">9400</td>
-    <td class="tg-lto5">7500</td>
+    <td class="tg-7od5">7500</td>
     <td class="tg-0pky">7450</td>
     <td class="tg-0pky">13000</td>
-    <td class="tg-lto5">11500</td>
+    <td class="tg-7od5">11500</td>
     <td class="tg-0pky">10452</td>
     <td class="tg-0pky">20000</td>
-    <td class="tg-lto5">19500</td>
+    <td class="tg-7od5">19500</td>
     <td class="tg-0pky">18890</td>
   </tr>
 </tbody>
 </table>
+	</div>
+	</html>
+
